@@ -1,7 +1,7 @@
 CC = g++
 CFLAGS = -Wall
 DEBUG = -g
-OBJS = main.o node.o data.o
+OBJS = main.o node.o data.o entity.o
 
 all: $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o OUT
@@ -14,5 +14,8 @@ node.o : node.cc node.hpp
 
 data.o : data.cc data.hpp
 	$(CC) $(CFLAGS) data.cc -c
+
+entity.o : entity.cc entity.hpp
+	$(CC) $(CFLAGS) entity.cc -c
 
 
