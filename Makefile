@@ -1,4 +1,4 @@
-CC = g++
+CC = g++ -std=c++11
 CFLAGS = -Wall
 DEBUG = -g
 OBJS = main.o node.o data.o entity.o

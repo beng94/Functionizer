@@ -5,16 +5,20 @@
 
 #include "node.hpp"
 
+//TODO: It shouldn't be hard-coded
+const int ARGS = 3;
+
 class Entity
 {
 private:
-    Node& root;
+    Node* root;
     double fittness;
 
     double eval_graph(std::vector<double> vars);
 
 public:
-    double calc_fittness();
+    Entity();
+    double calc_fittness(std::vector<double> vars, double result);
 };
 
 #endif
