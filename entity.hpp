@@ -7,6 +7,9 @@
 
 //TODO: It shouldn't be hard-coded
 const int ARGS = 3;
+const double MUTATION_RATE = 0.1;
+const double CROSS_OVER_LIMIT = 0.5;
+const int POPULATION_SIZE = 1000;
 
 class Entity
 {
@@ -19,6 +22,9 @@ private:
 public:
     Entity();
     double calc_fittness(std::vector<double> vars, double result);
+    void mutate();
+    Entity cross_over(Entity&);
+};
 };
 
 #endif
