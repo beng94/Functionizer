@@ -25,6 +25,16 @@ public:
     void mutate();
     Entity cross_over(Entity&);
 };
+
+class EntityContainer
+{
+private:
+    std::vector<Entity> container;
+
+    void sort();
+public:
+    EntityContainer();
+    void evolve();
 };
 
 #endif

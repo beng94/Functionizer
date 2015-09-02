@@ -13,3 +13,12 @@ Entity::Entity() : fittness{0.0}
 {
     root = gen_new_graph();
 }
+
+EntityContainer::EntityContainer()
+{
+    this->container.reserve(POPULATION_SIZE);
+    for(int i = 0; i < POPULATION_SIZE; i++)
+    {
+        this->container.push_back(Entity());
+    }
+}
