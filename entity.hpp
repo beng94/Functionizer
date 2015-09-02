@@ -24,6 +24,7 @@ public:
     double calc_fittness(std::vector<double> vars, double result);
     void mutate();
     Entity cross_over(Entity&);
+    double get_fittness();
 };
 
 class EntityContainer

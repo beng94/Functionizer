@@ -9,9 +9,19 @@ static Node* gen_new_graph()
     return root;
 }
 
-Entity::Entity() : fittness{0.0}
+Entity::Entity() : fittness{-1.0}
 {
     root = gen_new_graph();
+}
+
+double Entity::get_fittness()
+{
+    if(this->fittness == -1.0)
+    {
+        //TODO: Calculate the fittness and save it
+    }
+
+    return this->fittness;
 }
 
 EntityContainer::EntityContainer()
