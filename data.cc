@@ -20,7 +20,7 @@ Data::Data(int level, int args)
 
     //Must be less(<) otherwise it could generate 0 and
     //generate a variable at the 0th level
-    if((std::rand() / RAND_MAX) < prob)
+    if((std::rand() / (double) RAND_MAX) < prob)
     {
         //generate a variable
         this->num = std::rand() % args;
