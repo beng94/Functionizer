@@ -1,8 +1,11 @@
+#include <cstdlib>
+#include <ctime>
+
 #include "entity.hpp"
 
 int main()
 {
-    EntityContainer ent_container();
+    std::srand(std::time(0));
 
     return 0;
 }

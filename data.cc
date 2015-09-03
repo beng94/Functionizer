@@ -1,22 +1,10 @@
-#include <mutex>
-#include <cstdlib>
-#include <ctime>
 #include <iostream>
 
 #include "data.hpp"
 
-std::once_flag flag;
-
 Data::Data(int level, int args)
 {
     double prob = level / (double) args;
-
-    //It's called only once, helps to generate a random num
-    std::call_once(flag, []()
-    {
-        std::srand(std::time(0));
-        std::cout << "Simple example: called once\n";
-    });
 
     //Must be less(<) otherwise it could generate 0 and
     //generate a variable at the 0th level
