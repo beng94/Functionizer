@@ -21,3 +21,17 @@ Data::Data(int level, int args)
         this->type = static_cast<Types>((std::rand() % 4) + 1);
     }
 }
+
+std::string Data::get_str_type()
+{
+    switch(this->type)
+    {
+        case Num: return std::to_string(this->arg_id);
+        case Sum: return "+";
+        case Sub: return "-";
+        case Div: return "/";
+        case Mult: return "*";
+    };
+
+    return "";
+}

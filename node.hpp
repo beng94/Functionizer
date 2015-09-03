@@ -1,6 +1,9 @@
 #ifndef NODE_HPP
 #define NODE_HPP
 
+#include <fstream>
+#include <string>
+
 #include "data.hpp"
 
 class Node
@@ -12,6 +15,7 @@ private:
 
 public:
     Node(int, int);
+    std::string write_dot(std::ofstream&);
 };
 
 #endif

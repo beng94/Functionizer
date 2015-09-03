@@ -16,6 +16,16 @@ double Entity::get_fittness()
     return this->fittness;
 }
 
+void Entity::write_dot()
+{
+    std::ofstream file;
+    file.open("graph.dot");
+    file << "digraph A\n{\n";
+    this->root->write_dot(file);
+    file << "}";
+    file.close();
+}
+
 EntityContainer::EntityContainer()
 {
     this->container.reserve(POPULATION_SIZE);

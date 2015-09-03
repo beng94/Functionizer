@@ -25,6 +25,7 @@ public:
     void mutate();
     Entity cross_over(Entity&);
     double get_fittness();
+    void write_dot();
 };
 
 class EntityContainer
