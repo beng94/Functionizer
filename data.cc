@@ -11,13 +11,13 @@ Data::Data(int level, int args)
     if((std::rand() / (double) RAND_MAX) < prob)
     {
         //generate a variable
-        this->num = std::rand() % args;
+        this->arg_id = std::rand() % args;
         this->type = Num;
     }
     else
     {
         //generate an operand
-        this->num = -1.0;
+        this->arg_id = -1;
         this->type = static_cast<Types>((std::rand() % 4) + 1);
     }
 }

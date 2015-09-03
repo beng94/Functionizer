@@ -6,12 +6,13 @@ enum Types { Num = 0, Sum, Sub, Div, Mult };
 class Data
 {
 private:
-    double num;
+    int arg_id;
     Types type;
 
 public:
     Data(int, int);
     Types get_type() { return type; }
+    int get_arg_id() { return arg_id; }
     double get_num() { return num; }
 };
 
