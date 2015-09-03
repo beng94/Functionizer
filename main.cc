@@ -7,5 +7,7 @@ int main()
 {
     std::srand(std::time(0));
 
+    EntityContainer ent_container;
+
     return 0;
 }
