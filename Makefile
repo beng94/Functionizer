@@ -1,21 +1,23 @@
 CC = g++ -std=c++11
 CFLAGS = -Wall
-DEBUG = -g
 OBJS = main.o node.o data.o entity.o
 
 all: $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o OUT
 
+debug:
+	$(CC) -g $(CFLAGS) data.cc data.hpp node.cc node.hpp entity.cc entity.hpp main.cc -o OUT
+
 main.o : main.cc
-	$(CC) $(CFLAGS) main.cc -c
+	$(CC) $(DEBUG) $(CFLAGS) main.cc -c
 
 node.o : node.cc node.hpp
-	$(CC) $(CFLAGS) node.cc -c
+	$(CC) $(DEBUG) $(CFLAGS) node.cc -c
 
 data.o : data.cc data.hpp
-	$(CC) $(CFLAGS) data.cc -c
+	$(CC) $(DEBUG) $(CFLAGS) data.cc -c
 
 entity.o : entity.cc entity.hpp
-	$(CC) $(CFLAGS) entity.cc -c
+	$(CC) $(DEBUG) $(CFLAGS) entity.cc -c
 
 
