@@ -46,7 +46,8 @@ void Entity::write_dot()
     file.close();
 }
 
-EntityContainer::EntityContainer()
+EntityContainer::EntityContainer(std::vector<std::pair<std::vector<double>, double>> tst_cases) :
+                 tst_cases{tst_cases}
 {
     this->container.reserve(POPULATION_SIZE);
     for(int i = 0; i < POPULATION_SIZE; i++)

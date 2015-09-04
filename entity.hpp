@@ -34,10 +34,11 @@ class EntityContainer
 {
 private:
     std::vector<Entity> container;
+    std::vector<std::pair<std::vector<double>, double>> tst_cases;
 
     void sort();
 public:
-    EntityContainer();
+    EntityContainer(std::vector<std::pair<std::vector<double>, double>>);
     void evolve();
 };
 
