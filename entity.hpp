@@ -2,6 +2,7 @@
 #define ENTITY_HPP
 
 #include <vector>
+#include <utility>
 
 #include "node.hpp"
 
@@ -21,10 +22,11 @@ private:
 
 public:
     Entity();
-    double calc_fittness(std::vector<double> vars, double result);
+    double get_fittness();
+
+    void calc_fittness(std::vector<std::pair<std::vector<double>, double>>);
     void mutate();
     Entity cross_over(Entity&);
-    double get_fittness();
     void write_dot();
 };
 

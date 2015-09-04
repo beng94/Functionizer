@@ -1,5 +1,6 @@
 #include <cstdlib>
 #include <sstream>
+#include <stdexcept>
 
 #include "node.hpp"
 
@@ -40,4 +41,29 @@ std::string Node::write_dot(std::ofstream& file)
     }
 
     return std::to_string(this->data.get_type());
+}
+
+double Node::calc_operation(double a, double b )
+{
+    switch(this->data.get_type())
+    {
+        case Num: throw std::invalid_argument("calc_operation received a Num");
+        case Sum: return a + b;
+        case Sub: return a - b;
+        case Div: return a / b;
+        case Mult: return a * b;
+    };
+
+    return -1.0;
+}
+
+double Node::eval_node(std::vector<double> vars)
+{
+    if(this->data.get_type() == Num)
+        return vars[this->data.get_arg_id()];
+
+    double rResult = this->rChild->eval_node(vars);
+    double lResult = this->lChild->eval_node(vars);
+
+    return this->calc_operation(rResult, lResult);
 }

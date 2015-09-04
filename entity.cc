@@ -16,6 +16,26 @@ double Entity::get_fittness()
     return this->fittness;
 }
 
+double Entity::eval_graph(std::vector<double> vars)
+{
+    return this->root->eval_node(vars);
+}
+
+void Entity::calc_fittness(std::vector<std::pair<std::vector<double>, double>> pairs)
+{
+    double fittness = 0.0;
+    for(auto pair: pairs)
+    {
+        std::vector<double> vars = pair.first;
+        double result = pair.second;
+        double calc_result = this->eval_graph(vars);
+
+        fittness += (result - calc_result) * (result - calc_result);
+    }
+
+    this->fittness = fittness;
+}
+
 void Entity::write_dot()
 {
     std::ofstream file;
