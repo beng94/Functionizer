@@ -1,6 +1,8 @@
 #include "entity.hpp"
 #include "node.hpp"
 
+static int SOLUTION_COUNT = 1;
+
 Entity::Entity() : fittness{-1.0}
 {
     root = new Node(0, ARGS);
@@ -39,7 +41,7 @@ void Entity::calc_fittness(std::vector<std::pair<std::vector<double>, double>> p
 void Entity::write_dot()
 {
     std::ofstream file;
-    file.open("graph.dot");
+    file.open("graph" + std::to_string(SOLUTION_COUNT++) + ".dot");
     file << "digraph A\n{\n";
     this->root->write_dot(file);
     file << "}";
