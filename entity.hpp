@@ -7,7 +7,7 @@
 #include "node.hpp"
 
 //TODO: It shouldn't be hard-coded
-const int ARGS = 3;
+const int ARGS = 2;
 const double MUTATION_RATE = 0.1;
 const double CROSS_OVER_LIMIT = 0.5;
 const int POPULATION_SIZE = 1000;
