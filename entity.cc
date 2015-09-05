@@ -52,6 +52,8 @@ EntityContainer::EntityContainer(std::vector<std::pair<std::vector<double>, doub
     this->container.reserve(POPULATION_SIZE);
     for(int i = 0; i < POPULATION_SIZE; i++)
     {
-        this->container.push_back(Entity());
+        Entity new_entity;
+        new_entity.calc_fittness(tst_cases);
+        this->container.push_back(new_entity);
     }
 }
