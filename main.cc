@@ -20,6 +20,7 @@ int main()
     };
 
     EntityContainer ent_container(test_cases);
+    ent_container.evolve();
 
     return 0;
 }

@@ -1,3 +1,5 @@
+#include <algorithm>
+
 #include "entity.hpp"
 #include "node.hpp"
 
@@ -48,6 +50,21 @@ void Entity::write_dot()
     file.close();
 }
 
+static bool compare(Entity a, Entity b)
+{
+    return a.get_fittness() > b.get_fittness();
+}
+
+void EntityContainer::sort()
+{
+    std::sort(this->container.begin(), this->container.end(), compare);
+
+    for(auto ent: this->container)
+    {
+        std::cout << ent.get_fittness() << std::endl;
+    }
+}
+
 EntityContainer::EntityContainer(std::vector<std::pair<std::vector<double>, double>> tst_cases) :
                  tst_cases{tst_cases}
 {
@@ -59,3 +76,28 @@ EntityContainer::EntityContainer(std::vector<std::pair<std::vector<double>, doub
         this->container.push_back(new_entity);
     }
 }
+
+bool EntityContainer::found_solution()
+{
+    return this->container.at(0).get_fittness() == 0.0;
+}
+
+void EntityContainer::print_solutions()
+{
+    int i = 0;
+    while(this->container.at(i).get_fittness() == 0.0)
+    {
+        this->container.at(i++).write_dot();
+    }
+
+}
+
+void EntityContainer::evolve()
+{
+    this->sort();
+
+    if(this->found_solution())
+        this->print_solutions();
+}
+
+
