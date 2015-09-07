@@ -57,6 +57,20 @@ Node* Entity::get_rand_node(int& level)
         }
     }
 }
+
+void Entity::mutate()
+{
+    double prob = (std::rand() /(double) RAND_MAX);
+    if(prob < MUTATION_RATE)
+    {
+        int level = 0;
+        Node* rand_node = this->get_rand_node(level);
+        //TODO: free rand_node's r and lChild
+        rand_node->set_rChild(new Node(level + 1, args));
+        rand_node->set_lChild(new Node(level + 1, args));
+    }
+}
+
 void Entity::write_dot()
 {
     std::ofstream file;
@@ -112,6 +126,11 @@ void EntityContainer::print_solutions()
 void EntityContainer::evolve()
 {
     this->sort();
+
+    for(auto ent: this->container)
+    {
+        ent.mutate();
+    }
 
     if(this->found_solution())
         this->print_solutions();
