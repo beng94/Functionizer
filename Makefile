@@ -23,4 +23,7 @@ entity.o : entity.cc entity.hpp
 clean:
 	rm *.png *.dot
 
+pictures:
+	#!/bin/bash
+	./graphviz.sh
 
