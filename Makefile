@@ -20,4 +20,7 @@ data.o : data.cc data.hpp
 entity.o : entity.cc entity.hpp
 	$(CC) $(DEBUG) $(CFLAGS) entity.cc -c
 
+clean:
+	rm *.png *.dot
+
 
