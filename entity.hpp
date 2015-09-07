@@ -18,6 +18,7 @@ private:
     int args;
 
     double eval_graph(std::vector<double> vars);
+    Node* get_rand_node(int&);
 
 public:
     Entity(int args);

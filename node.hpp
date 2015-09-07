@@ -20,6 +20,8 @@ public:
     Node(int, int);
     std::string write_dot(std::ofstream&);
     double eval_node(std::vector<double>);
+    Node* get_rChild() { return rChild; }
+    Node* get_lChild() { return lChild; }
 };
 
 #endif

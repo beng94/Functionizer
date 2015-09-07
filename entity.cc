@@ -40,6 +40,23 @@ void Entity::calc_fittness(std::vector<std::pair<std::vector<double>, double>> p
     this->fittness = fittness;
 }
 
+Node* Entity::get_rand_node(int& level)
+{
+    Node *node = root;
+    while(true)
+    {
+        double prob = std::rand() / (double) RAND_MAX;
+        if(prob <= 0.5) node = node->get_lChild();
+        else node = node->get_rChild();
+
+        level++;
+
+        if((std::rand() / (double)RAND_MAX) < level / (double) args)
+        {
+            return node;
+        }
+    }
+}
 void Entity::write_dot()
 {
     std::ofstream file;
