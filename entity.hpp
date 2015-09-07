@@ -22,7 +22,7 @@ private:
 
 public:
     Entity(int args);
-    double get_fittness();
+    double get_fittness() { return fittness; }
 
     void calc_fittness(std::vector<std::pair<std::vector<double>, double>>);
     void mutate();

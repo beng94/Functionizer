@@ -10,16 +10,6 @@ Entity::Entity(int args) : fittness{-1.0}, args{args}
     root = new Node(0, args);
 }
 
-double Entity::get_fittness()
-{
-    if(this->fittness == -1.0)
-    {
-        //TODO: Calculate the fittness and save it
-    }
-
-    return this->fittness;
-}
-
 double Entity::eval_graph(std::vector<double> vars)
 {
     return this->root->eval_node(vars);
