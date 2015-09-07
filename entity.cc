@@ -79,11 +79,6 @@ static bool compare(Entity a, Entity b)
 void EntityContainer::sort()
 {
     std::sort(this->container.begin(), this->container.end(), compare);
-
-    for(auto ent: this->container)
-    {
-        std::cout << ent.get_fittness() << std::endl;
-    }
 }
 
 EntityContainer::EntityContainer(std::vector<std::pair<std::vector<double>, double>> tst_cases) :
