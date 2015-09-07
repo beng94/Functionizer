@@ -6,8 +6,6 @@
 
 #include "node.hpp"
 
-//TODO: It shouldn't be hard-coded
-const int ARGS = 2;
 const double MUTATION_RATE = 0.1;
 const double CROSS_OVER_LIMIT = 0.5;
 const int POPULATION_SIZE = 1000;
@@ -17,11 +15,12 @@ class Entity
 private:
     Node* root;
     double fittness;
+    int args;
 
     double eval_graph(std::vector<double> vars);
 
 public:
-    Entity();
+    Entity(int args);
     double get_fittness();
 
     void calc_fittness(std::vector<std::pair<std::vector<double>, double>>);

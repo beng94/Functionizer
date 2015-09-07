@@ -5,9 +5,9 @@
 
 static int SOLUTION_COUNT = 1;
 
-Entity::Entity() : fittness{-1.0}
+Entity::Entity(int args) : fittness{-1.0}, args{args}
 {
-    root = new Node(0, ARGS);
+    root = new Node(0, args);
 }
 
 double Entity::get_fittness()
@@ -71,7 +71,7 @@ EntityContainer::EntityContainer(std::vector<std::pair<std::vector<double>, doub
     this->container.reserve(POPULATION_SIZE);
     for(int i = 0; i < POPULATION_SIZE; i++)
     {
-        Entity new_entity;
+        Entity new_entity(tst_cases.at(0).first.size());
         new_entity.calc_fittness(tst_cases);
         this->container.push_back(new_entity);
     }
