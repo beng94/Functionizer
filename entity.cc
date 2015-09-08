@@ -87,7 +87,7 @@ void Entity::write_dot()
 
 static bool compare(Entity a, Entity b)
 {
-    return a.get_fittness() > b.get_fittness();
+    return a.get_fittness() < b.get_fittness();
 }
 
 void EntityContainer::sort()
@@ -109,7 +109,7 @@ EntityContainer::EntityContainer(std::vector<std::pair<std::vector<double>, doub
 
 bool EntityContainer::found_solution()
 {
-    return this->container.at(0).get_fittness() == 0.0;
+    return this->container.front().get_fittness() == 0.0;
 }
 
 void EntityContainer::print_solutions()
