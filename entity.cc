@@ -64,7 +64,7 @@ void Entity::mutate()
 void Entity::write_dot()
 {
     std::ofstream file;
-    file.open("graph" + std::to_string(SOLUTION_COUNT++) + ".dot");
+    file.open("./pictures/graph" + std::to_string(SOLUTION_COUNT++) + ".dot");
     file << "digraph A\n{\n";
     this->root->write_dot(file);
     file << "}";
