@@ -21,9 +21,10 @@ entity.o : entity.cc entity.hpp
 	$(CC) $(DEBUG) $(CFLAGS) entity.cc -c
 
 clean:
-	rm *.png *.dot
-
-pictures:
 	#!/bin/bash
-	./graphviz.sh
+	./pictures/delete_pics.sh
+
+picture:
+	#!/bin/bash
+	./pictures/create_pics.sh
 
