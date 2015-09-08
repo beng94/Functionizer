@@ -36,8 +36,22 @@ Node* Entity::get_rand_node(int& level)
     while(true)
     {
         double prob = std::rand() / (double) RAND_MAX;
-        if(prob <= 0.5) node = node->get_lChild();
-        else node = node->get_rChild();
+        if(prob <= 0.5)
+        {
+            if(node->get_lChild() != NULL)
+                node = node->get_lChild();
+            else if(node->get_rChild() != NULL)
+                node = node->get_rChild();
+            else return node;
+        }
+        else
+        {
+            if(node->get_rChild() != NULL)
+                node = node->get_rChild();
+            else if(node->get_lChild() != NULL)
+                node = node->get_lChild();
+            else return node;
+        }
 
         level++;
 
