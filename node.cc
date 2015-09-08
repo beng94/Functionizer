@@ -50,7 +50,7 @@ double Node::calc_operation(double a, double b )
         case Num: throw std::invalid_argument("calc_operation received a Num");
         case Sum: return a + b;
         case Sub: return a - b;
-        case Div: return a / b;
+        case Div: return (b == 0) ? (0) : a / b;
         case Mult: return a * b;
     };
 
