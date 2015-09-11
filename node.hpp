@@ -18,6 +18,7 @@ private:
 
 public:
     Node(int, int);
+    ~Node();
     std::string write_dot(std::ofstream&);
     double eval_node(std::vector<double>);
     Node* get_rChild() { return rChild; }
