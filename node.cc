@@ -67,6 +67,21 @@ double Node::eval_node(std::vector<double> vars)
 
     return this->calc_operation(rResult, lResult);
 }
+
+Node Node::operator=(Node* rhs)
+{
+    this->data = rhs->data;
+    this->rChild = rhs->rChild;
+    this->lChild = rhs->lChild;
+
+    rhs->rChild = NULL;
+    rhs->lChild = NULL;
+
+    delete rhs;
+
+    return *this;
+}
+
 Node::~Node()
 {
     if(this->rChild) delete this->rChild;
