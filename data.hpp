@@ -17,6 +17,8 @@ public:
     std::string get_str_type();
     Types get_type() { return type; }
     int get_arg_id() { return arg_id; }
+
+    Data operator=(Data&);
 };
 
 #endif

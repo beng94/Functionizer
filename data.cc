@@ -35,3 +35,11 @@ std::string Data::get_str_type()
 
     return "";
 }
+
+Data Data::operator=(Data& rhs)
+{
+    this->arg_id = rhs.arg_id;
+    this->type = rhs.type;
+
+    return *this;
+}
