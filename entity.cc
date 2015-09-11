@@ -69,9 +69,7 @@ void Entity::mutate()
     {
         int level = 0;
         Node* rand_node = this->get_rand_node(level);
-        //TODO: free rand_node's r and lChild
-        rand_node->set_rChild(new Node(level + 1, args));
-        rand_node->set_lChild(new Node(level + 1, args));
+        *rand_node = *(new Node(level, args));
     }
 }
 
