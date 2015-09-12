@@ -15,7 +15,8 @@ clean:
 	#!/bin/bash
 	./pictures/delete_pics.sh
 
-picture:
+pictures:
 	#!/bin/bash
 	./pictures/create_pics.sh
 
+.PHONY: clean pictures
