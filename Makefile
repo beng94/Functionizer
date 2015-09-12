@@ -6,7 +6,7 @@ all: $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o OUT
 
 debug:
-	$(CC) -g $(CFLAGS) data.cc data.hpp node.cc node.hpp entity.cc entity.hpp main.cc -o OUT
+	$(CC) -g $(CFLAGS) data.cc data.hpp node.cc node.hpp entity.cc entity.hpp test.cc test.hpp main.cc -o OUT
 
 main.o : main.cc
 	$(CC) $(DEBUG) $(CFLAGS) main.cc -c
