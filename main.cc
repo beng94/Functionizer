@@ -1,7 +1,7 @@
 #include <cstdlib>
 #include <ctime>
 
-#include "entity.hpp"
+#include "entitycontainer.hpp"
 #include "test.hpp"
 
 int main()
