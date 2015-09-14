@@ -6,15 +6,16 @@ all: $(OBJS) clean
 	$(CC) $(CFLAGS) $(OBJS) -o OUT
 
 debug: CFLAGS += -g
-debug: $(OBJS) clean
+debug: clean $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o OUT
 
 %.o: %.cc
 	$(CC) $(CFLAGS) $< -c
 
 clean:
+	-rm *.o
 	#!/bin/bash
-	./pictures/delete_pics.sh
+	-./pictures/delete_pics.sh
 
 pictures:
 	#!/bin/bash
