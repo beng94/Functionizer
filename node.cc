@@ -4,6 +4,8 @@
 
 #include "node.hpp"
 
+Node::Node(Data d) : data{d}, rChild{NULL}, lChild{NULL} {}
+
 Node::Node(int level, int args) : data{level, args}
 {
     if(this->data.get_type() != Num)
@@ -66,6 +68,36 @@ double Node::eval_node(std::vector<double> vars)
     double lResult = this->lChild->eval_node(vars);
 
     return this->calc_operation(rResult, lResult);
+}
+
+Node* get_rand_child(Node* lhs, Node* rhs)
+{
+    double prob = std::rand() / (double) RAND_MAX;
+
+    Node* new_node;
+    if(prob < 0.5)
+    {
+        if(lhs == NULL) return NULL;
+        new_node = new Node(lhs->data);
+    }
+    else
+    {
+        if(rhs == NULL) return NULL;
+        new_node = new Node(rhs->data);
+    }
+
+    new_node->rChild = get_rand_child(lhs ? lhs->rChild : NULL, rhs ? rhs->rChild : NULL);
+    new_node->lChild = get_rand_child(lhs ? lhs->lChild : NULL, rhs ? rhs->lChild : NULL);
+
+    return new_node;
+}
+
+Node* Node::get_rand_root(Node* rhs)
+{
+    double prob = std::rand() / (double) RAND_MAX;
+
+    Data rand_data = prob < 0.5 ? this->data : rhs->data;
+    return new Node(rand_data);
 }
 
 Node Node::operator=(Node* rhs)

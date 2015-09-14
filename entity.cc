@@ -3,6 +3,9 @@
 
 static int SOLUTION_COUNT = 1;
 
+//TODO: Somehow get args
+Entity::Entity(Node* root) : root{root}, fittness{-1.0}, args{-1} {}
+
 Entity::Entity(int args) : fittness{-1.0}, args{args}
 {
     root = new Node(0, args);
@@ -69,6 +72,19 @@ void Entity::mutate()
         Node* rand_node = this->get_rand_node(level);
         *rand_node = *(new Node(level, args));
     }
+}
+
+Entity Entity::cross_over(Entity& rhs)
+{
+    Node* new_root = this->root->get_rand_root(rhs.root);
+    Node* rChild = get_rand_child(this->root->get_rChild(), rhs.root->get_rChild());
+    Node* lChild = get_rand_child(this->root->get_lChild(), rhs.root->get_lChild());
+    new_root->set_rChild(rChild);
+    new_root->set_lChild(lChild);
+
+    Entity new_entity(new_root);
+
+    return new_entity;
 }
 
 void Entity::write_dot()

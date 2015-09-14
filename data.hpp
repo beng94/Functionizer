@@ -12,6 +12,7 @@ private:
     Types type;
 
 public:
+    Data(const Data&);
     Data(int, int);
 
     std::string get_str_type();

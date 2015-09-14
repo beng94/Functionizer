@@ -2,6 +2,8 @@
 
 #include "data.hpp"
 
+Data::Data(const Data& d) : arg_id{d.arg_id}, type{d.type} {}
+
 Data::Data(int level, int args)
 {
     double prob = level / (double) args;

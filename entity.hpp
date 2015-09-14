@@ -21,6 +21,7 @@ private:
     Node* get_rand_node(int&);
 
 public:
+    Entity(Node*);
     Entity(int args);
     double get_fittness() { return fittness; }
 
