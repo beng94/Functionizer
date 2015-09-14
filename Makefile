@@ -1,12 +1,13 @@
 CC = g++ -std=c++11
-CFLAGS = -Wall -pedantic -g
+CFLAGS = -Wall -pedantic
 OBJS = main.o node.o data.o entity.o entitycontainer.o test.o
 
 all: $(OBJS) clean
 	$(CC) $(CFLAGS) $(OBJS) -o OUT
 
-debug:
-	$(CC) -g $(CFLAGS) $(OBJS) -o OUT
+debug: CFLAGS += -g
+debug: $(OBJS) clean
+	$(CC) $(CFLAGS) $(OBJS) -o OUT
 
 %.o: %.cc
 	$(CC) $(CFLAGS) $< -c
