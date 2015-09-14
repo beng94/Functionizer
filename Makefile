@@ -1,5 +1,5 @@
 CC = g++ -std=c++11
-CFLAGS = -Wall -pedantic
+CFLAGS = -Wall -pedantic -g
 OBJS = main.o node.o data.o entity.o entitycontainer.o test.o
 
 all: $(OBJS) clean
