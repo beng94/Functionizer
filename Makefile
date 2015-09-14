@@ -3,7 +3,7 @@ CFLAGS = -Wall -pedantic
 OBJS = main.o node.o data.o entity.o entitycontainer.o test.o
 
 all: $(OBJS) clean
-	$(CC) $(CFLAGS) $(OBJS) -o OUT
+	$(CC) $(CFLAGS) $(OBJS) -O2 -o OUT
 
 debug: CFLAGS += -g
 debug: clean $(OBJS)
