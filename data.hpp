@@ -12,6 +12,7 @@ private:
     Types type;
 
 public:
+    Data() {}
     Data(const Data&);
     Data(int, int);
 

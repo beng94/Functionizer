@@ -76,15 +76,8 @@ void Entity::mutate()
 
 Entity Entity::cross_over(Entity& rhs)
 {
-    Node* new_root = this->root->get_rand_root(rhs.root);
-    Node* rChild = get_rand_child(this->root->get_rChild(), rhs.root->get_rChild());
-    Node* lChild = get_rand_child(this->root->get_lChild(), rhs.root->get_lChild());
-    new_root->set_rChild(rChild);
-    new_root->set_lChild(lChild);
-
-    Entity new_entity(new_root);
-
-    return new_entity;
+    Node* new_root = get_rand_child(this->root, rhs.root);
+    return Entity(new_root);
 }
 
 void Entity::write_dot()
