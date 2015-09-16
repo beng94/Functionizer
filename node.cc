@@ -103,14 +103,6 @@ Node* get_rand_child(Node* lhs, Node* rhs)
     return new_node;
 }
 
-Node* Node::get_rand_root(Node* rhs)
-{
-    double prob = std::rand() / (double) RAND_MAX;
-
-    Data rand_data = prob < 0.5 ? this->data : rhs->data;
-    return new Node(rand_data);
-}
-
 Node Node::operator=(Node* rhs)
 {
     this->data = rhs->data;

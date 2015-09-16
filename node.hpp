@@ -23,7 +23,6 @@ public:
     ~Node();
     std::string write_dot(std::ofstream&);
     double eval_node(std::vector<double>);
-    Node* get_rand_root(Node* rhs);
     Node* get_rChild() { return rChild; }
     Node* get_lChild() { return lChild; }
     void set_rChild(Node* node) { rChild = node; }
