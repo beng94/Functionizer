@@ -48,12 +48,13 @@ void EntityContainer::evolve()
         ent.mutate();
     }
 
-    for(auto ent_a: this->container)
+    for(int i = 0; i < this->container.size(); i++)
     {
-        for(auto ent_b: this->container)
-        {
-            Entity n = ent_a.cross_over(ent_b);
-        }
+         for(int j = i + 1; j < this->container.size(); j++)
+         {
+            Entity new_entity =
+                this->container.at(i).cross_over(this->container.at(j));
+         }
     }
 
     if(this->found_solution())
