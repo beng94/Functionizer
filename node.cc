@@ -85,21 +85,27 @@ Node* get_rand_child(Node* lhs, Node* rhs)
 {
     double prob = std::rand() / (double) RAND_MAX;
 
-    Node* new_node;
-    if(prob < 0.5)
+    Node* choosen = prob < 0.5 ? lhs : rhs;
+    Node* not_choosen = choosen == lhs ? rhs : lhs;
+
+    Node *new_node = new Node(choosen->data);
+
+    if(choosen->data.get_type() == Num)
     {
-        if(lhs == NULL) return NULL;
-        new_node = new Node(lhs->data);
-    }
-    else
-    {
-        if(rhs == NULL) return NULL;
-        new_node = new Node(rhs->data);
+        new_node->lChild = NULL;
+        new_node->rChild = NULL;
+        return new_node;
     }
 
-    new_node->rChild = get_rand_child(lhs ? lhs->rChild : NULL, rhs ? rhs->rChild : NULL);
-    new_node->lChild = get_rand_child(lhs ? lhs->lChild : NULL, rhs ? rhs->lChild : NULL);
+    if(not_choosen->data.get_type() == Num)
+    {
+        new_node->lChild = new Node(choosen->lChild);
+        new_node->rChild = new Node(choosen->rChild);
+        return new_node;
+    }
 
+    new_node->lChild = get_rand_child(lhs->lChild, rhs->lChild);
+    new_node->rChild = get_rand_child(lhs->rChild, rhs->rChild);
     return new_node;
 }
 
