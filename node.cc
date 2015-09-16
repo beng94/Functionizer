@@ -4,6 +4,17 @@
 
 #include "node.hpp"
 
+Node::Node(const Node* node)
+{
+    this->data = node->data;
+    if(node->rChild != NULL)
+        this->rChild = new Node(node->rChild);
+    else this->rChild = NULL;
+    if(node->lChild != NULL)
+        this->lChild = new Node(node->lChild);
+    else this->lChild = NULL;
+}
+
 Node::Node(Data d) : data{d}, rChild{NULL}, lChild{NULL} {}
 
 Node::Node(int level, int args) : data{level, args}

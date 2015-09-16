@@ -17,6 +17,7 @@ private:
     double calc_operation(double, double);
 
 public:
+    Node(const Node*);
     Node(Data);
     Node(int, int);
     ~Node();
