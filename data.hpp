@@ -19,7 +19,7 @@ public:
     Types get_type() { return type; }
     int get_arg_id() { return arg_id; }
 
-    Data operator=(Data&);
+    Data operator=(const Data&);
 };
 
 #endif
