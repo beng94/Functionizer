@@ -50,17 +50,19 @@ void EntityContainer::evolve()
 {
     this->sort();
 
-    for(auto ent: this->container)
+    for(int i = 0; i < this->container.size(); i++)
     {
-        ent.mutate();
+        this->container.at(i).mutate();
     }
 
-    for(int i = 0; i < this->container.size() * CROSS_OVER_LIMIT; i++)
+    int size = this->container.size() * CROSS_OVER_LIMIT;
+    for(int i = 0; i < size; i++)
     {
-         for(int j = i + 1; j < this->container.size() * CROSS_OVER_LIMIT; j++)
+         for(int j = i + 1; j < size; j++)
          {
             Entity new_entity =
                 this->container.at(i).cross_over(this->container.at(j));
+            new_entity.calc_fittness(this->tst_cases);
             this->container.push_back(new_entity);
          }
     }
