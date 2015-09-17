@@ -35,6 +35,7 @@ void EntityContainer::print_solutions()
     while(this->container.at(i).get_fittness() == 0.0)
     {
         this->container.at(i++).write_dot();
+        if(i == this->container.size()) break;
     }
 
 }
