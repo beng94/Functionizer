@@ -9,6 +9,7 @@
 const double MUTATION_RATE = 0.1;
 const double CROSS_OVER_LIMIT = 0.5;
 const int POPULATION_SIZE = 1000;
+const int GENERATION_COUNT = 100;
 
 class Entity
 {

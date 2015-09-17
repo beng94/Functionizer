@@ -10,7 +10,11 @@ int main()
 
     Test tst;
     EntityContainer ent_container(tst.get_cases());
-    ent_container.evolve();
+
+    for(int i = 0; i < GENERATION_COUNT; i++)
+    {
+         ent_container.evolve();
+    }
 
     return 0;
 }
