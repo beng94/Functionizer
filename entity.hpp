@@ -25,6 +25,7 @@ public:
     Entity(Node*);
     Entity(int args);
     double get_fittness() { return fittness; }
+    double get_fittness() const { return fittness; }
 
     void calc_fittness(std::vector<std::pair<std::vector<double>, double>>);
     void mutate();
