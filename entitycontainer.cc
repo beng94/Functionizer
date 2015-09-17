@@ -2,7 +2,7 @@
 
 #include "entitycontainer.hpp"
 
-static bool compare(Entity a, Entity b)
+static bool compare(const Entity& a, const Entity& b)
 {
     return a.get_fittness() < b.get_fittness();
 }
