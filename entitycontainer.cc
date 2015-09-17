@@ -39,6 +39,12 @@ void EntityContainer::print_solutions()
 
 }
 
+void EntityContainer::reduce_pop_size()
+{
+    this->container.erase(this->container.begin() + POPULATION_SIZE,
+                          this->container.end());
+}
+
 void EntityContainer::evolve()
 {
     this->sort();
@@ -57,6 +63,10 @@ void EntityContainer::evolve()
             this->container.push_back(new_entity);
          }
     }
+
+    this->sort();
+
+    this->reduce_pop_size();
 
     if(this->found_solution())
         this->print_solutions();

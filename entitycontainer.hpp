@@ -9,6 +9,7 @@ private:
     void sort();
     bool found_solution();
     void print_solutions();
+    void reduce_pop_size();
 
 public:
     EntityContainer(std::vector<std::pair<std::vector<double>, double>>);
