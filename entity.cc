@@ -4,7 +4,7 @@
 static int SOLUTION_COUNT = 1;
 
 //TODO: Somehow get args
-Entity::Entity(Node* root) : root{root}, fittness{-1.0}, args{-1} {}
+Entity::Entity(Node* root) : root{root}, fittness{-1.0}, args{2} {}
 
 Entity::Entity(int args) : fittness{-1.0}, args{args}
 {
